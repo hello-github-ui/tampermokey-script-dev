@@ -240,4 +240,5 @@ tampermokey 油猴脚本开发
 
 
 
-[^https://juejin.cn/post/7022654292880424991]: 本文参考
+[本文参考自【轻松上手】油猴脚本开发](https://juejin.cn/post/7022654292880424991)
+[更多内容](https://learn.scriptcat.org/%E7%AE%80%E4%BB%8B/)
