@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 引入 ElementUI 样式 -->
-    <link rel="stylesheet" href="/stylesheets/element.min.css" />
+    <link rel="stylesheet" href="/stylesheets/element.min.css"/>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <!-- 引入 Vue 组件库 -->
     <script type="text/javascript" src="/javascripts/vue.min.js"></script>
@@ -18,97 +18,99 @@
 </head>
 
 <body>
-    <div id="app">
-        <el-container style="height: 500px; border: 1px solid #eee">
-            <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-                <el-menu :default-active="activeIndex" @select="handleSelect">
-                    <el-submenu index="1">
-                        <template slot="title"><i class="el-icon-ship"></i>入门篇</template>
-                        <el-menu-item index="万能视频倍速播放" title="万能视频倍速播放">万能视频倍速播放</el-menu-item>
-                        <el-menu-item index="使用脚本向页面上添加新元素" title="使用脚本向页面上添加新元素">使用脚本向页面上添加新元素
-                        </el-menu-item>
-                    </el-submenu>
+<div id="app">
+    <el-container style="height: 500px; border: 1px solid #eee">
+        <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+            <el-menu :default-active="activeIndex" @select="handleSelect" style="height: 100%;">
+                <el-submenu index="1">
+                    <template slot="title"><i class="el-icon-ship"></i>入门篇</template>
+                    <el-menu-item index="万能视频倍速播放" title="万能视频倍速播放">万能视频倍速播放</el-menu-item>
+                    <el-menu-item index="使用脚本向页面上添加新元素" title="使用脚本向页面上添加新元素">使用脚本向页面上添加新元素
+                    </el-menu-item>
+                </el-submenu>
 
-                    <el-submenu index="2">
-                        <template slot="title"><i class="el-icon-menu"></i>中级篇</template>
-                    </el-submenu>
+                <el-submenu index="2">
+                    <template slot="title"><i class="el-icon-menu"></i>中级篇</template>
+                </el-submenu>
 
-                    <el-submenu index="3">
-                        <template slot="title"><i class="el-icon-aim"></i>高级篇</template>
-                    </el-submenu>
+                <el-submenu index="3">
+                    <template slot="title"><i class="el-icon-aim"></i>高级篇</template>
+                </el-submenu>
 
-                    <el-submenu index="4">
-                        <template slot="title"><i class="el-icon-guide"></i>工程篇</template>
-                    </el-submenu>
+                <el-submenu index="4">
+                    <template slot="title"><i class="el-icon-guide"></i>工程篇</template>
+                </el-submenu>
 
-                    <el-submenu index="5">
-                        <template slot="title"><i class="el-icon-coin"></i>实战篇</template>
-                    </el-submenu>
+                <el-submenu index="5">
+                    <template slot="title"><i class="el-icon-coin"></i>实战篇</template>
+                </el-submenu>
 
-                    <el-submenu index="6">
-                        <template slot="title"><i class="el-icon-office-building"></i>原理篇</template>
-                    </el-submenu>
+                <el-submenu index="6">
+                    <template slot="title"><i class="el-icon-office-building"></i>原理篇</template>
+                </el-submenu>
 
-                    <el-submenu index="7">
-                        <template slot="title"><i class="el-icon-question"></i>补充篇</template>
-                    </el-submenu>
+                <el-submenu index="7">
+                    <template slot="title"><i class="el-icon-question"></i>补充篇</template>
+                </el-submenu>
 
-                </el-menu>
-            </el-aside>
+            </el-menu>
+        </el-aside>
 
-            <el-container>
-                <el-main>
-                    <div class="markdown">
-                        <!-- <vue-markdown :source="markdown" :value="markdown"
-                            style="height: 200px; width: 300px; background-color: antiquewhite;">111</vue-markdown> -->
+        <el-container>
+            <el-main>
+                <div class="markdown">
+                    <!-- <vue-markdown :source="markdown" :value="markdown"
+                        style="height: 200px; width: 300px; background-color: antiquewhite;">111</vue-markdown> -->
 
-                        <!-- <v-md-editor v-model="markdown" height="400px"></v-md-editor> -->
+                    <!-- <v-md-editor v-model="markdown" height="400px"></v-md-editor> -->
 
 
-                    </div>
-                </el-main>
-            </el-container>
+                </div>
+            </el-main>
         </el-container>
-    </div>
+    </el-container>
+</div>
 
 
-    <script>
-        marked.setOptions({
-            renderer: new marked.Renderer(),
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false,
-            highlight: function (code, lang) {
-                //使用 highlight 插件解析文档中代码部分
-                return hljs.highlightAuto(code, [lang]).value;
+<script>
+    marked.setOptions({
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false,
+        highlight: function (code, lang) {
+            //使用 highlight 插件解析文档中代码部分
+            return hljs.highlightAuto(code, [lang]).value;
+        }
+    });
+
+    new Vue({
+        el: "#app",
+        // components: {
+        //     VueMarkdown: window.VueMarkdown
+        // },
+        data() {
+            return {
+                activeIndex: '1',
+                // markdown: 'C:\\Users\\Admin\\WebstormProjects\\tampermokey-script-dev\\public\\文档\\使用脚本向页面上添加新元素.md',
+                markdown: '# Hello, World',
             }
-        });
-
-        new Vue({
-            el: "#app",
-            // components: {
-            //     VueMarkdown: window.VueMarkdown
-            // },
-            data () {
-                return {
-                    activeIndex: '1',
-                    // markdown: 'C:\\Users\\Admin\\WebstormProjects\\tampermokey-script-dev\\public\\文档\\20240429-使用脚本向页面上添加新元素.md',
-                    markdown: '# Hello, World',
-                }
-            },
-            methods: {
-                /* 处理选中事件，让其在main中显示相应的文档 */
-                handleSelect (key, keyPath) {
-                    // console.log(`key: ${key}, keyPath: ${keyPath}`);
-                    console.log('请求路径:', '/文档/' + key + '.md');
-                    axios
-                        .get('/文档/20240429-使用脚本向页面上添加新元素.md', {
+        },
+        methods: {
+            /* 处理选中事件，让其在main中显示相应的文档 */
+            handleSelect(key, keyPath) {
+                // console.log(`key: ${key}, keyPath: ${keyPath}`);
+                // console.log('请求路径:', '/文档/' + key + '.md');
+                let file = "/文档/" + key + ".md";
+                console.log(`file: ${file}, type: ${typeof (file)}`)
+                axios
+                        .get(file, {
                             headers: {
-                                'Content-Type': 'text/plain'
+                                'Content-Type': 'text/html; charset=utf-8'
                                 // 添加其他需要的请求头
                             },
                             withCredentials: true
@@ -121,12 +123,12 @@
                         .catch(error => {
                             console.error(error);
                         });
-                }
             }
-        });
+        }
+    });
 
 
-    </script>
+</script>
 </body>
 
 </html>
