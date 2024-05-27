@@ -1,3 +1,8 @@
+ARG USERNAME=pulldodker123
+ARG PASSWORD=Latin259695$$
+
+RUN echo $PASSWORD | docker login --username $USERNAME --password-stdin registry.example.com
+
 # 使用父镜像
 FROM node:current-slim
 
