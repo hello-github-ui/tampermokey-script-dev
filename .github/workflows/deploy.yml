@@ -61,27 +61,27 @@ jobs:
                   docker tag $IMAGE_NAME ${IMAGE_ID}:$VERSION
 
                   docker push $IMAGE_ID:$VERSION
-            - name: Deploy to Remote Server
-              uses: appleboy/ssh-action@v0.1.4
-              with:
-                  host: ${{ env.REMOTE_HOST }}
-                  username: ${{ env.REMOTE_USER }}
-                  key: ${{ env.REMOTE_SSH_KEY }}
-                  script: |
-                      IMAGE_ID=${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
-                      VERSION=${{ github.sha }}
-                      if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-                        VERSION=${{ github.ref }}
-                        VERSION=${VERSION##*/}  # Get the tag name from the ref
-                      elif [[ "${{ github.ref }}" == refs/heads/master ]]; then
-                        VERSION=latest
-                      fi
+            # - name: Deploy to Remote Server
+            #   uses: appleboy/ssh-action@v0.1.4
+            #   with:
+            #       host: ${{ env.REMOTE_HOST }}
+            #       username: ${{ env.REMOTE_USER }}
+            #       key: ${{ env.REMOTE_SSH_KEY }}
+            #       script: |
+            #           IMAGE_ID=${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
+            #           VERSION=${{ github.sha }}
+            #           if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            #             VERSION=${{ github.ref }}
+            #             VERSION=${VERSION##*/}  # Get the tag name from the ref
+            #           elif [[ "${{ github.ref }}" == refs/heads/master ]]; then
+            #             VERSION=latest
+            #           fi
 
-                      if [[ "$VERSION" != "latest" ]]; then
-                        VERSION=${VERSION:0:7}
-                      fi
+            #           if [[ "$VERSION" != "latest" ]]; then
+            #             VERSION=${VERSION:0:7}
+            #           fi
 
-                      docker pull $IMAGE_ID:$VERSION
-                      docker stop my_app_container || true
-                      docker rm my_app_container || true
-                      docker run -d --name my_app_container -p 3000:3000 $IMAGE_ID:$VERSION
+            #           docker pull $IMAGE_ID:$VERSION
+            #           docker stop my_app_container || true
+            #           docker rm my_app_container || true
+            #           docker run -d --name my_app_container -p 3000:3000 $IMAGE_ID:$VERSION
