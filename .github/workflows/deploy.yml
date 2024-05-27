@@ -88,4 +88,4 @@ jobs:
                       docker pull $IMAGE_ID:$VERSION
                       docker stop my_app_container || true
                       docker rm my_app_container || true
-                      docker run -d --name my_app_container -p 80:80 $IMAGE_ID:$VERSION
+                      docker run -d --name my_app_container -p 3000:3000 $IMAGE_ID:$VERSION
