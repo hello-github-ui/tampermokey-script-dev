@@ -1,0 +1,23 @@
+### IDEA
+.idea
+*.iml
+
+
+### LOG
+logs
+*.log
+log
+
+### NODEJS
+node_modules
+package-lock.json
+
+### TEST
+tests
+
+
+### COMPILE
+target
+
+### SELF Undefine
+#data
