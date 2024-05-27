@@ -1,6 +1,14 @@
 # tampermokey-script-dev
 tampermokey 油猴脚本开发
 
+## 演示
+
+下载项目，运行 `npm start`，效果如下：
+
+![image-20240527104839195](./assets/image-20240527104839195.png)
+
+后续如果有新的文档加入，只需要将文档写在 `public/文档/` 目录下，同时修改 `index.html` 文件，在其中加入相应的文档链接即可。
+
 # 浏览器插件(Browser Extension)
 
 浏览器插件也叫浏览器的扩展应用。
