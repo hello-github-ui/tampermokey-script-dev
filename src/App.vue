@@ -135,7 +135,7 @@ export default {
         handleSelect (key, keyPath) {
             // console.log(`key: ${key}, keyPath: ${keyPath}`);
             // console.log('请求路径:', '/文档/' + key + '.md');
-            let file = "/文档/" + key + ".md";
+            let file = "./文档/" + key + ".md";
             // console.log(`file: ${file}, type: ${typeof (file)}`)
             axios
                 .get(file, {
