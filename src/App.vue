@@ -106,7 +106,11 @@
 
 <script>
 
-
+/* 
+* 写作说明：
+* 1、写好 md 文档，并放在 public 下面的文档目录下，
+* 2、修改此处的 menu 选项即可
+*/
 
 
 // 下面在 vue3 中使用 选项式 API 风格
@@ -135,7 +139,7 @@ export default {
         handleSelect (key, keyPath) {
             // console.log(`key: ${key}, keyPath: ${keyPath}`);
             // console.log('请求路径:', '/文档/' + key + '.md');
-            let file = "./文档/" + key + ".md";
+            let file = "./文档/" + key + ".md"; // 部署到 github pages 上时需要相对路径
             // console.log(`file: ${file}, type: ${typeof (file)}`)
             axios
                 .get(file, {
